@@ -12,7 +12,7 @@ String baseUrl = "https://newsapi.org/v2/top-headlines" ;
 class News {
   Future<List<Article>?> getNews() async {
     List<Article>? list;
-    String url = '$baseUrl/top-headlines?country=id&apiKey=$apiKey';
+    String url = '$baseUrl?country=id&apiKey=$apiKey';
     var response = await http.get(Uri.parse(url));
     if(response.statusCode == 200){
       var data = jsonDecode(response.body);
@@ -27,7 +27,7 @@ class News {
 
   Future<List<Article>> getNewsByCategory(String category) async {
     List<Article> list;
-    String url = '$baseUrl/top-headlines?country=id&category=$category&apiKey=$apiKey';
+    String url = '$baseUrl?country=id&category=$category&apiKey=$apiKey';
     var response = await http.get(Uri.parse(url));
     if(response.statusCode == 200) {
       var data = jsonDecode(response.body);
